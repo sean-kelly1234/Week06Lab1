@@ -14,7 +14,9 @@
     </head>
     <body>
         <sait:debug>
-            Debug message
+            Debug message: ${pageContext.request.remoteHost} <br>
+            ${pageContext.session.id}, ${pageContext.session.creationTime} <br>
+            ${pageContext.session.getAttribute('user').user}
         </sait:debug>
         <h1>Hello World!</h1>
         <div>

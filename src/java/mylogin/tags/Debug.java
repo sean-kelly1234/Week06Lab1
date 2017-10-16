@@ -25,12 +25,6 @@ public class Debug extends TagSupport{
                 return EVAL_BODY_INCLUDE;
             }
         }
-//        try {
-//            JspWriter out = pageContext.getOut();
-//            out.print(url);
-//        } catch (IOException ioe) {
-//            System.out.println(ioe);
-//        }
         return SKIP_BODY;
     }
 }
