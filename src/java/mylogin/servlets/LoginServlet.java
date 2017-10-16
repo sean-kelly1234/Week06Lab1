@@ -55,12 +55,11 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String remember = request.getParameter("remember");
-        System.out.println(remember);
         HttpSession session = request.getSession();
         if (username != null && password != null && !username.equals("") && !password.equals("")){
             User user = UserService.login(username, password);
             if (user != null) {
-                if (remember != null) {
+                if (remember != null && remember.equals("on")) {
                     Cookie cUser = new Cookie("username", username);
                     cUser.setMaxAge(60 * 60);
                     cUser.setPath("/");
@@ -68,7 +67,7 @@ public class LoginServlet extends HttpServlet {
                 }
                 else {
                     Cookie cUser = CookieUtility.removeCookie(request.getCookies(), "username");
-                    response.addCookie(cUser);
+                    if (cUser != null)response.addCookie(cUser);
                 }
                 session.setAttribute("user", user);
                 response.sendRedirect("home");

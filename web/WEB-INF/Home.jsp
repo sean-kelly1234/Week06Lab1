@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sait" uri="/WEB-INF/tlds/sait.tld" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,9 @@
         <title>Home</title>
     </head>
     <body>
+        <sait:debug>
+            Debug message
+        </sait:debug>
         <h1>Hello World!</h1>
         <div>
             <p>Hello ${user.user}</p>
